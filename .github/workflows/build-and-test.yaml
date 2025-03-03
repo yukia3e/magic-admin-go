@@ -23,6 +23,9 @@ jobs:
         with:
           go-version-file: go.mod
           cache-dependency-path: go.sum
+      - name: Setup
+        run: |
+          go install gotest.tools/gotestsum@v1.11.0
       - name: Lint
         uses: golangci/golangci-lint-action@v6
         with:
