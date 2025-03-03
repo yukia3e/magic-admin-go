@@ -4,7 +4,7 @@ run-name: Test by @${{ github.actor }}
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
   pull_request:
     types: [opened, synchronize, reopened]
