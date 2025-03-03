@@ -5,9 +5,9 @@ import (
 
 	"github.com/go-resty/resty/v2"
 
-	"github.com/magiclabs/magic-admin-go"
-	"github.com/magiclabs/magic-admin-go/token"
-	"github.com/magiclabs/magic-admin-go/wallet"
+	"github.com/yukia3e/magic-admin-go"
+	"github.com/yukia3e/magic-admin-go/token"
+	"github.com/yukia3e/magic-admin-go/wallet"
 )
 
 const (

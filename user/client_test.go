@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/magiclabs/magic-admin-go"
-	"github.com/magiclabs/magic-admin-go/wallet"
+	"github.com/yukia3e/magic-admin-go"
+	"github.com/yukia3e/magic-admin-go/wallet"
 )
 
 const testDIDToken = "WyIweGFhNTBiZTcwNzI5Y2E3MDViYTdjOGQwMDE4NWM2ZjJkYTQ3OWQwZm" +
@@ -56,7 +56,7 @@ func TestUserGetMetadata(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient(testSecret, testClientId, client)
 
@@ -74,7 +74,7 @@ func TestUserGetMetadataWithWallet(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient(testSecret, testClientId, client)
 
@@ -95,7 +95,7 @@ func TestUserGetMetadataWithAny(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient(testSecret, testClientId, client)
 
@@ -116,7 +116,7 @@ func TestUserGetMetadataWrongSecret(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient("wrong_secret", testClientId, client)
 
@@ -132,7 +132,7 @@ func TestUserGetMetadataBackendFailure(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient("wrong_secret", testClientId, client)
 
@@ -148,7 +148,7 @@ func TestUserLogout(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient(testSecret, testClientId, client)
 
@@ -162,7 +162,7 @@ func TestUserLogoutBackendFailure(t *testing.T) {
 
 	// Replace host url to test one.
 	client := magic.NewDefaultClient()
-	client.SetHostURL(srv.URL)
+	client.SetBaseURL(srv.URL)
 
 	uClient := NewUserClient("wrong_secret", testClientId, client)
 

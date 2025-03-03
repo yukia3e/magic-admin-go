@@ -8,9 +8,9 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/magiclabs/magic-admin-go"
-	"github.com/magiclabs/magic-admin-go/client"
-	"github.com/magiclabs/magic-admin-go/token"
+	"github.com/yukia3e/magic-admin-go"
+	"github.com/yukia3e/magic-admin-go/client"
+	"github.com/yukia3e/magic-admin-go/token"
 )
 
 func main() {

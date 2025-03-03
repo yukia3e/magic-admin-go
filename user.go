@@ -3,7 +3,7 @@ package magic
 import (
 	"encoding/json"
 
-	"github.com/magiclabs/magic-admin-go/wallet"
+	"github.com/yukia3e/magic-admin-go/wallet"
 )
 
 type User interface {
@@ -33,9 +33,9 @@ type ClientInfo struct {
 }
 
 type Wallet struct {
-	Network       string `json:"network"`
-	PublicAddress string `json:"public_address"`
-	Type          string `json:"wallet_type"`
+	Network       string      `json:"network"`
+	PublicAddress string      `json:"public_address"`
+	Type          wallet.Type `json:"wallet_type"`
 }
 
 func (m *UserInfo) String() string {
