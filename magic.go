@@ -38,7 +38,7 @@ func NewDefaultClient() *resty.Client {
 
 // NewClient creates new backend client with default api url.
 func NewClient() *resty.Client {
-	return resty.New().SetHostURL(APIURL).SetError(new(Error))
+	return resty.New().SetBaseURL(APIURL).SetError(new(Error))
 }
 
 // NewClientWithRetry creates backend client with backoff retry configuration.

@@ -3,8 +3,8 @@ package client
 import (
 	"github.com/go-resty/resty/v2"
 
-	"github.com/magiclabs/magic-admin-go"
-	"github.com/magiclabs/magic-admin-go/user"
+	"github.com/yukia3e/magic-admin-go"
+	"github.com/yukia3e/magic-admin-go/user"
 )
 
 const (

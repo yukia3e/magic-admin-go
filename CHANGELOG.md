@@ -33,7 +33,7 @@ import (
     "log"
     "fmt"
 
-    "github.com/magiclabs/magic-admin-go/token"
+    "github.com/yukia3e/magic-admin-go/token"
 )
 
 func main() {
@@ -59,8 +59,8 @@ import (
     "log"
     "fmt"
 
-	"github.com/magiclabs/magic-admin-go/client"
-    "github.com/magiclabs/magic-admin-go/token"
+	"github.com/yukia3e/magic-admin-go/client"
+    "github.com/yukia3e/magic-admin-go/token"
 )
 
 func main() {
