@@ -157,10 +157,10 @@ func signHash(data []byte) common.Hash {
 //	addr = ecRecover(hash, signature)
 func ecRecover(hash hexutil.Bytes, sig hexutil.Bytes) (common.Address, error) {
 	if len(sig) != 65 {
-		return common.Address{}, fmt.Errorf("Signature must be 65 bytes long")
+		return common.Address{}, fmt.Errorf("signature must be 65 bytes long")
 	}
 	if sig[64] != 27 && sig[64] != 28 {
-		return common.Address{}, fmt.Errorf("Invalid Ethereum signature (V is not 27 or 28)")
+		return common.Address{}, fmt.Errorf("invalid ethereum signature (V is not 27 or 28)")
 	}
 	sig[64] -= 27
 	rpk, err := crypto.SigToPub(hash, sig)
