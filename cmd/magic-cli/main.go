@@ -1,12 +1,12 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"os"
+	"time"
 
-	"github.com/urfave/cli/v3"
+	"github.com/urfave/cli/v2"
 
 	"github.com/yukia3e/magic-admin-go"
 	"github.com/yukia3e/magic-admin-go/client"
@@ -14,15 +14,16 @@ import (
 )
 
 func main() {
-	app := &cli.Command{
-		Name:  "magic-cli",
-		Usage: "command line utility to make requests to api and validate tokens",
+	app := &cli.App{
+		Name:     "magic-cli",
+		Usage:    "command line utility to make requests to api and validate tokens",
+		Compiled: time.Now(),
 		Commands: []*cli.Command{
 			{
 				Name:    "token",
 				Aliases: []string{"t"},
 				Usage:   "magic-cli token [decode|validate] --did <DID token> [--clientId <Magic Client ID>]",
-				Commands: []*cli.Command{
+				Subcommands: []*cli.Command{
 					{
 						Name:  "decode",
 						Usage: "magic-cli token decode --did <DID token>",
@@ -43,11 +44,9 @@ func main() {
 								Usage: "Did token which must be validated",
 							},
 							&cli.StringFlag{
-								Name:  "clientId",
-								Usage: "Magic Client ID to validate the aud field",
-								Sources: cli.NewValueSourceChain(
-									cli.EnvVar("MAGIC_CLIENT_ID"),
-								),
+								Name:    "clientId",
+								Usage:   "Magic Client ID to validate the aud field",
+								EnvVars: []string{"MAGIC_CLIENT_ID"},
 							},
 						},
 						Action: validateDIDToken,
@@ -72,26 +71,24 @@ func main() {
 				Name:    "secret",
 				Usage:   "Secret token which will be used for making request to backend api",
 				Aliases: []string{"s"},
-				Sources: cli.NewValueSourceChain(
-					cli.EnvVar("MAGIC_API_SECRET_KEY"),
-				),
+				EnvVars: []string{"MAGIC_API_SECRET_KEY"},
 			},
 		},
 	}
 
-	if err := app.Run(context.Background(), os.Args); err != nil {
+	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err)
 	}
 }
 
-func userMetadata(ctx context.Context, cmd *cli.Command) error {
-	m, err := client.New(cmd.String("secret"), magic.NewDefaultClient())
+func userMetadata(c *cli.Context) error {
+	m, err := client.New(c.String("secret"), magic.NewDefaultClient())
 
 	if err != nil {
 		return err
 	}
 
-	userInfo, err := m.User.GetMetadataByToken(cmd.String("did"))
+	userInfo, err := m.User.GetMetadataByToken(c.String("did"))
 	if err != nil {
 		return err
 	}
@@ -101,8 +98,8 @@ func userMetadata(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
-func decodeDIDToken(ctx context.Context, cmd *cli.Command) error {
-	tk, err := token.NewToken(cmd.String("did"))
+func decodeDIDToken(c *cli.Context) error {
+	tk, err := token.NewToken(c.String("did"))
 	if err != nil {
 		return err
 	}
@@ -113,14 +110,14 @@ func decodeDIDToken(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
-func validateDIDToken(ctx context.Context, cmd *cli.Command) error {
+func validateDIDToken(c *cli.Context) error {
 
-	tk, err := token.NewToken(cmd.String("did"))
+	tk, err := token.NewToken(c.String("did"))
 	if err != nil {
 		return err
 	}
 
-	if err := tk.Validate(cmd.String("clientId")); err != nil {
+	if err := tk.Validate(c.String("clientId")); err != nil {
 		return err
 	}
 
