@@ -27,9 +27,9 @@ jobs:
         run: |
           go install gotest.tools/gotestsum@v1.11.0
       - name: Lint
-        uses: golangci/golangci-lint-action@v7
+        uses: golangci/golangci-lint-action@v8
         with:
-          version: v2.1.5
+          version: v2.3.0
           working-directory: .
           args: -v --timeout=10m
       - name: Build
