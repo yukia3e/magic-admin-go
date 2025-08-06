@@ -20,7 +20,7 @@ See the [Magic doc](https://magic.link/docs/api-reference/server-side-sdks/go)!
 
 ## Installation
 
-The SDK requires **Go 1.24.0** and Go Modules. To make sure your project is using Go Modules, check for a `go.mod` file in your project's root directory. If it exists, you're already set up; if not, please follow [this guide](https://blog.golang.org/migrating-to-go-modules) to migrate to Go Modules.
+The SDK requires **Go 1.24.5** and Go Modules. To make sure your project is using Go Modules, check for a `go.mod` file in your project's root directory. If it exists, you're already set up; if not, please follow [this guide](https://blog.golang.org/migrating-to-go-modules) to migrate to Go Modules.
 
 Simply reference the SDK in your Go program with an `import`:
 
