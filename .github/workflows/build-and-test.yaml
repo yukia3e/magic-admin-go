@@ -29,7 +29,7 @@ jobs:
       - name: Lint
         uses: golangci/golangci-lint-action@v8
         with:
-          version: v2.3.0
+          version: v2.3.1
           working-directory: .
           args: -v --timeout=10m
       - name: Build
