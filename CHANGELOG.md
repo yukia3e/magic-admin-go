@@ -2,11 +2,17 @@
 
 ## Upcoming Changes
 
+## `1.1.1` - 10/29/2026
+
+#### Changed
+
+- Lowered the minimum Go version from 1.26.10 to 1.26 (`go 1.26.0`). Development and CI keep using Go 1.26.10 via the `toolchain` directive.
+
 ## `1.1.0` - 10/29/2026
 
 #### Changed
 
-- Bumped the minimum Go version to 1.26 (`go 1.26.0`). Development and CI use Go 1.26.10 via the `toolchain` directive.
+- Bumped the minimum Go version to 1.26.10.
 - Updated dependencies (`go-ethereum` v1.17.10, `resty` v2.17.2, `testify` v1.12.1, `urfave/cli` v2.27.7, `golang.org/x/net` v0.62.0, `golang.org/x/sys` v0.49.0).
 - Updated CI tooling (GitHub Actions pinned by digest, `golangci-lint` v2.15.0, `gotestsum` v1.13.0).
 
