@@ -20,7 +20,7 @@ See the [Magic doc](https://magic.link/docs/api-reference/server-side-sdks/go)!
 
 ## Installation
 
-The SDK requires **Go 1.24.5** and Go Modules. To make sure your project is using Go Modules, check for a `go.mod` file in your project's root directory. If it exists, you're already set up; if not, please follow [this guide](https://blog.golang.org/migrating-to-go-modules) to migrate to Go Modules.
+The SDK requires **Go 1.26.10** and Go Modules. To make sure your project is using Go Modules, check for a `go.mod` file in your project's root directory. If it exists, you're already set up; if not, please follow [this guide](https://blog.golang.org/migrating-to-go-modules) to migrate to Go Modules.
 
 Simply reference the SDK in your Go program with an `import`:
 
@@ -55,19 +55,19 @@ The currently available commands are:
 ```bash
 $ magic-cli -h
 NAME:
-   magic-cli - command line utility to make requests to API and validate tokens
+   magic-cli - command line utility to make requests to api and validate tokens
 
 USAGE:
-   magic-cli [global options] command [command options] [arguments...]
+   magic-cli [global options] command [command options]
 
 COMMANDS:
-   token, t   magic-cli token [decode|validate] --did <DID token> [--clientId <Magic Client ID>]
-   user, u    magic-cli -s <secret> user --did <DID token>
-   help, h    Shows a list of commands or help for one command
+   token, t  magic-cli token [decode|validate] --did <DID token> [--clientId <Magic Client ID>]
+   user, u   magic-cli -s <secret> user --did <DID token>
+   help, h   Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --secret value, -s value  Secret token used for making requests to the backend API [$MAGIC_API_SECRET_KEY]
-   --help, -h                show help (default: false)
+   --secret value, -s value  Secret token which will be used for making request to backend api [$MAGIC_API_SECRET_KEY]
+   --help, -h                show help
 ```
 
 ## Quick Start
@@ -141,7 +141,10 @@ The `NewClientWithRetry` method creates a client with customizable `retries`, `r
 
 ```golang
 cl := magic.NewClientWithRetry(5, time.Second, 10*time.Second)
-m := client.New("<YOUR_API_SECRET_KEY>", cl)
+m, err := client.New("<YOUR_API_SECRET_KEY>", cl)
+if err != nil {
+	log.Fatalf("Error initializing client: %s", err.Error())
+}
 ```
 
 ## Development

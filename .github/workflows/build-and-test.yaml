@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -34,8 +37,6 @@ jobs:
           args: -v --timeout=10m
       - name: Build
         run: go build ./...
-      - name: Run tests
-        run: go test ./...
       - name: Test
         run: gotestsum --jsonfile tmp/test-results.json -- -timeout 20m ./...
       - name: Annotate tests
