@@ -2,15 +2,21 @@
 
 ## Upcoming Changes
 
+## `1.1.0` - 10/29/2026
+
 #### Changed
 
-- Bumped the minimum Go version to 1.26.10.
-- Updated dependencies (`go-ethereum` v1.17.10, `resty` v2.17.2, `testify` v1.12.1, `urfave/cli` v2.27.7).
+- Bumped the minimum Go version to 1.26 (`go 1.26.0`). Development and CI use Go 1.26.10 via the `toolchain` directive.
+- Updated dependencies (`go-ethereum` v1.17.10, `resty` v2.17.2, `testify` v1.12.1, `urfave/cli` v2.27.7, `golang.org/x/net` v0.62.0, `golang.org/x/sys` v0.49.0).
 - Updated CI tooling (GitHub Actions pinned by digest, `golangci-lint` v2.15.0, `gotestsum` v1.13.0).
 
 #### Fixed
 
 - Fixed the `NewClientWithRetry` sample code in README.
+
+#### Security
+
+- Updated `golang.org/x/net` to v0.62.0 to address GO-2026-6603, GO-2026-6610, GO-2026-6611, GO-2026-6612, GO-2026-6617, GO-2026-6860 and GO-2026-6866.
 
 
 ## `1.0.0` - 07/05/2023

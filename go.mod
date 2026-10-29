@@ -1,6 +1,8 @@
 module github.com/yukia3e/magic-admin-go
 
-go 1.26.10
+go 1.26.0
+
+toolchain go1.26.10
 
 require (
 	github.com/ethereum/go-ethereum v1.17.10
