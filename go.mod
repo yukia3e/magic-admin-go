@@ -6,7 +6,8 @@ require (
 	github.com/ethereum/go-ethereum v1.17.10
 	github.com/go-resty/resty/v2 v2.17.2
 	github.com/stretchr/testify v1.12.1
-	github.com/urfave/cli/v2 v2.27.7
+	github.com/urfave/cli/v2 v2.27.5
+	github.com/urfave/cli/v3 v3.14.0
 )
 
 require (
