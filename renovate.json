@@ -1,6 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update gotestsum installed in GitHub Actions workflows",
+      "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"],
+      "matchStrings": ["go install (?<depName>gotest\\.tools/gotestsum)@(?<currentValue>v\\S+)"],
+      "datasourceTemplate": "go"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Keep golangci-lint in mise.toml and the CI workflow in sync",
+      "matchDepNames": ["golangci-lint", "golangci/golangci-lint"],
+      "groupName": "golangci-lint"
+    }
   ]
 }

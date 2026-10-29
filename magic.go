@@ -25,10 +25,10 @@ var (
 
 // Default response data structure of magic backend server.
 type Response struct {
-	Data      interface{} `json:"data"`
-	ErrorCode ErrorCode   `json:"error_code"`
-	Message   string      `json:"message"`
-	Status    string      `json:"status"`
+	Data      any       `json:"data"`
+	ErrorCode ErrorCode `json:"error_code"`
+	Message   string    `json:"message"`
+	Status    string    `json:"status"`
 }
 
 // NewDefaultClient creates backend client with default configuration of retries.

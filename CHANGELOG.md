@@ -1,5 +1,17 @@
 # Changelog
 
+## Upcoming Changes
+
+#### Changed
+
+- Bumped the minimum Go version to 1.26.10.
+- Updated dependencies (`go-ethereum` v1.17.10, `resty` v2.17.2, `testify` v1.12.1, `urfave/cli` v2.27.7).
+- Updated CI tooling (GitHub Actions pinned by digest, `golangci-lint` v2.15.0, `gotestsum` v1.13.0).
+
+#### Fixed
+
+- Fixed the `NewClientWithRetry` sample code in README.
+
 
 ## `1.0.0` - 07/05/2023
 
