@@ -11,21 +11,12 @@
       "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"],
       "matchStrings": ["go install (?<depName>gotest\\.tools/gotestsum)@(?<currentValue>v\\S+)"],
       "datasourceTemplate": "go"
-    },
-    {
-      "customType": "regex",
-      "description": "Update golangci-lint version passed to golangci-lint-action",
-      "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"],
-      "matchStrings": ["uses: golangci/golangci-lint-action@\\S+.*\\n(?:\\s+.*\\n)*?\\s+version: (?<currentValue>v\\S+)"],
-      "depNameTemplate": "golangci-lint",
-      "packageNameTemplate": "golangci/golangci-lint",
-      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
     {
       "description": "Keep golangci-lint in mise.toml and the CI workflow in sync",
-      "matchDepNames": ["golangci-lint"],
+      "matchDepNames": ["golangci-lint", "golangci/golangci-lint"],
       "groupName": "golangci-lint"
     }
   ]
