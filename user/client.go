@@ -97,7 +97,7 @@ func (u *Client) getMetadataByIssuer(issuer string, walletType wallet.Type) (*ma
 // LogoutByIssuer logout user from magic.link service by issuer.
 func (u *Client) LogoutByIssuer(issuer string) error {
 	r, err := u.client.R().
-		SetBody(map[string]interface{}{"issuer": issuer}).
+		SetBody(map[string]any{"issuer": issuer}).
 		SetHeader(magic.APISecretHeader, u.secret).
 		Post(userLogoutV2)
 	if err != nil {
